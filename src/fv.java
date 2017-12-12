@@ -30,21 +30,15 @@ public class fv {
     }
     //.....................................................................................//
     static void drawRectangle (int z){// Метод, що виводить квадрат в консоль
-        System.out.println("Будь ласка, зазначте довжину сторони квадрата: ");
-        int width = scanner.nextInt();
         int length = 0;
-        while (length < width) {
+        while (length < z) {
             length++;
-            widthM(width);
+            widthM(z);
             System.out.println();
         }
     }
     //.....................................................................................//
-    static void getMax (){//Метод приймає значення аргументу та виводить більше в типі інт
-        System.out.println("Введіть значення першого аргумента:");
-    int a = scanner.nextInt();
-        System.out.println("Введіть значення другого аргумента: ");
-    int b = scanner.nextInt();
+    static void getMax (int a, int b){//Метод приймає значення аргументу та виводить більше в типі інт
     if (a > b){
         System.out.println(a + " - більше");
         } else if (a < b){
@@ -54,13 +48,7 @@ public class fv {
                      }
     }
     //....................................................................................//
-    static void getMax (float ax, float bx){//Метод приймає значення аргументу та виводить більше в флоаті
-        System.out.println("Введіть значення першого аргумента: \n" +
-                "(дріб писати через кому, приклад - 0,0)");
-        float a = scanner.nextFloat();
-        System.out.println("Введіть значення другого аргумента: \n" +
-                "(дріб писати через кому, приклад - 0,0)");
-        float b = scanner.nextFloat();
+    static void getMax (float a, float b){//Метод приймає значення аргументу та виводить більше в флоаті
             if (a > b){
               System.out.println(a + " - більше");
             } else if (a < b){
@@ -110,10 +98,9 @@ public class fv {
                 int length = scanner.nextInt();
                 drawRectangle(width, length);// Виклик методу задачі 2
             } else if (choice == 3) {
-            /*Я понимаю, что такая запись кода может быть не совсем верна, но если писать сканер в самом методе то код
-        более читабельный, чем писать в главном методе все сканеры, а потом передавать, но так как в домашнем задании
-        нужно было использовать перезагрузку, я не создал новый метод, а вставил аргумент который не используеться*/
-                drawRectangle(0);//Виклик методу задачі 3
+                System.out.println("Будь ласка, зазначте довжину сторони квадрата: ");
+                int width = scanner.nextInt();
+                drawRectangle(width);//Виклик методу задачі 3
             } else if (choice == 4) {
                 int max = 1;
                 while (max == 1) {
@@ -123,9 +110,19 @@ public class fv {
                             "(Ввести цифру, яка відповідає номеру питання)");
                     int choicetype = scanner.nextInt();
                     if (choicetype == 1) {
-                        getMax();// Виклик методу задачі 4 за типом int
+                        System.out.println("Введіть значення першого аргумента:");
+                        int ax = scanner.nextInt();
+                        System.out.println("Введіть значення другого аргумента: ");
+                        int bx = scanner.nextInt();
+                        getMax(ax, bx);// Виклик методу задачі 4 за типом int
                     } else if (choicetype == 2) {
-                        getMax(0.0f, 0.0f); // Виклик методу задачі 4 за типом float
+                        System.out.println("Введіть значення першого аргумента: \n" +
+                                "(дріб писати через кому, приклад - 0,0)");
+                        float ax = scanner.nextFloat();
+                        System.out.println("Введіть значення другого аргумента: \n" +
+                                "(дріб писати через кому, приклад - 0,0)");
+                        float bx = scanner.nextFloat();
+                        getMax(ax, bx); // Виклик методу задачі 4 за типом float
                     } else {
                         System.out.println("Ви невірно задали номер питання!");
                     }
