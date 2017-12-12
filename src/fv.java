@@ -3,10 +3,7 @@ import java.util.Scanner;
 public class fv {
     static Scanner scanner = new Scanner(System.in);
     //.......................................................................................//
-    static void arrayvid() {  // 1. Метод, що рахує числа до значення х
-        System.out.println("Введіть число. на якому слід закінчити відлік: ");
-        int x = scanner.nextInt();int i = x; // Сканер х
-        System.out.println();
+    static void arrayvid(int x) {  // 1. Метод, що рахує числа до значення х
         int a = 0;
         while (a < x){
             a++;
@@ -22,16 +19,12 @@ public class fv {
         }
     }
     //.....................................................................................//
-    static void drawRectangle () {// Метод, що виводить прямокутник в консоль
-        System.out.println("Будь ласка, зазначте ширину прямокутника: ");
-        int width = scanner.nextInt();
-        System.out.println("Будь ласка, зазначте довжину прямокутника:");
-        int length = scanner.nextInt();
+    static void drawRectangle (int Qwidth, int Qlength) {// Метод, що виводить прямокутник в консоль
         int pluswidth = 0;
         int pluslength = 0;
-        while ((pluslength < length)) {
+        while ((pluslength < Qlength)) {
             pluslength++;
-            widthM(width);
+            widthM(Qwidth);
             System.out.println();
         }
     }
@@ -107,9 +100,15 @@ public class fv {
                     "(Ввести цифру, яка відповідає номеру питання)");
             int choice = scanner.nextInt();
             if (choice == 1) {
-                arrayvid(); // Виклик методу задачі 1
+                System.out.println("Введіть число. на якому слід закінчити відлік: ");
+                int i = scanner.nextInt(); // Сканер х
+                arrayvid(i); // Виклик методу задачі 1
             } else if (choice == 2) {
-                drawRectangle();// Виклик методу задачі 2
+                System.out.println("Будь ласка, зазначте ширину прямокутника: ");
+                int width = scanner.nextInt();
+                System.out.println("Будь ласка, зазначте довжину прямокутника:");
+                int length = scanner.nextInt();
+                drawRectangle(width, length);// Виклик методу задачі 2
             } else if (choice == 3) {
             /*Я понимаю, что такая запись кода может быть не совсем верна, но если писать сканер в самом методе то код
         более читабельный, чем писать в главном методе все сканеры, а потом передавать, но так как в домашнем задании
