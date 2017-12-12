@@ -111,16 +111,26 @@ public class fv {
         нужно было использовать перезагрузку, я не создал новый метод, а вставил аргумент который не используеться*/
             drawRectangle(0);//Виклик методу задачі 3
         }else if (choice == 4){
-            System.out.println("Будь ласка, виберіть тип елементів: \n" +
-                    "1 - int \n" +
-                    "2 - float");
-            int choicetype = scanner.nextInt();
-            if (choicetype == 1){
-                getMax();// Виклик методу задачі 4 за типом int
-            }else if (choicetype == 2){
-                getMax(0.0f ,0.0f); // Виклик методу задачі 4 за типом float
+            int max = 1;
+            while (max == 1) {
+                System.out.println("Будь ласка, виберіть тип елементів: \n" +
+                        "1 - int \n" +
+                        "2 - float\n" +
+                        "(Ввести цифру, яка відповідає номеру питання)");
+                int choicetype = scanner.nextInt();
+                if (choicetype == 1) {
+                    getMax();// Виклик методу задачі 4 за типом int
+                } else if (choicetype == 2) {
+                    getMax(0.0f, 0.0f); // Виклик методу задачі 4 за типом float
+                } else {
+                    System.out.println("Ви невірно задали номер питання!");
+                }
+                System.out.println("Виконати завдання ще раз: \n" +
+                        "1 - Так \n" +
+                        "2 - Ні");
+                max = scanner.nextInt();
             }
-        }
+        }else if ()
 
 
 
