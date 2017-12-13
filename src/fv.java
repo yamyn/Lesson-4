@@ -87,66 +87,76 @@ public class fv {
                     "6 - Зобразити прямокутник за даною вами довжиною та шириною, за допомогою символа + (за допомогою рекурсії)\n" +
                     "(Ввести цифру, яка відповідає номеру питання)");
             int choice = scanner.nextInt();
-            if (choice == 1) {
-                System.out.println("Введіть число. на якому слід закінчити відлік: ");
-                int i = scanner.nextInt(); // Сканер х
-                arrayvid(i); // Виклик методу задачі 1
-            } else if (choice == 2) {
-                System.out.println("Будь ласка, зазначте ширину прямокутника: ");
-                int width = scanner.nextInt();
-                System.out.println("Будь ласка, зазначте довжину прямокутника:");
-                int length = scanner.nextInt();
-                drawRectangle(width, length);// Виклик методу задачі 2
-            } else if (choice == 3) {
-                System.out.println("Будь ласка, зазначте довжину сторони квадрата: ");
-                int width = scanner.nextInt();
-                drawRectangle(width);//Виклик методу задачі 3
-            } else if (choice == 4) {
-                int max = 1;
-                while (max == 1) {
-                    System.out.println("Будь ласка, виберіть тип елементів: \n" +
-                            "1 - int \n" +
-                            "2 - float\n" +
-                            "(Ввести цифру, яка відповідає номеру питання)");
-                    int choicetype = scanner.nextInt();
-                    if (choicetype == 1) {
-                        System.out.println("Введіть значення першого аргумента:");
-                        int ax = scanner.nextInt();
-                        System.out.println("Введіть значення другого аргумента: ");
-                        int bx = scanner.nextInt();
-                        getMax(ax, bx);// Виклик методу задачі 4 за типом int
-                    } else if (choicetype == 2) {
-                        System.out.println("Введіть значення першого аргумента: \n" +
-                                "(дріб писати через кому, приклад - 0,0)");
-                        float ax = scanner.nextFloat();
-                        System.out.println("Введіть значення другого аргумента: \n" +
-                                "(дріб писати через кому, приклад - 0,0)");
-                        float bx = scanner.nextFloat();
-                        getMax(ax, bx); // Виклик методу задачі 4 за типом float
-                    } else {
-                        System.out.println("Ви невірно задали номер питання!");
+            switch (choice){
+                case 1:
+                    System.out.println("Введіть число. на якому слід закінчити відлік: ");
+                    int i = scanner.nextInt(); // Сканер х
+                    arrayvid(i); // Виклик методу задачі 1
+                    break;
+                case 2:
+                    System.out.println("Будь ласка, зазначте ширину прямокутника: ");
+                    int width = scanner.nextInt();
+                    System.out.println("Будь ласка, зазначте довжину прямокутника:");
+                    int length = scanner.nextInt();
+                    drawRectangle(width, length);// Виклик методу задачі 2
+                    break;
+                case 3:
+                    System.out.println("Будь ласка, зазначте довжину сторони квадрата: ");
+                    int widthq = scanner.nextInt();
+                    drawRectangle(widthq);//Виклик методу задачі 3
+                    break;
+                case 4:
+                    int max = 1;
+                    while (max == 1) {
+                        System.out.println("Будь ласка, виберіть тип елементів: \n" +
+                                "1 - int \n" +
+                                "2 - float\n" +
+                                "(Ввести цифру, яка відповідає номеру питання)");
+                        int choicetype = scanner.nextInt();
+                        switch (choicetype){
+                            case 1:
+                                System.out.println("Введіть значення першого аргумента:");
+                                int ax = scanner.nextInt();
+                                System.out.println("Введіть значення другого аргумента: ");
+                                int bx = scanner.nextInt();
+                                getMax(ax, bx);// Виклик методу задачі 4 за типом int
+                                break;
+                            case 2:
+                                System.out.println("Введіть значення першого аргумента: \n" +
+                                        "(дріб писати через кому, приклад - 0,0)");
+                                float ay = scanner.nextFloat();
+                                System.out.println("Введіть значення другого аргумента: \n" +
+                                        "(дріб писати через кому, приклад - 0,0)");
+                                float by = scanner.nextFloat();
+                                getMax(ay, by); // Виклик методу задачі 4 за типом float
+                                break;
+                            default:
+                                System.out.println("Ви невірно задали номер питання!");
+                        }
+                        System.out.println("Виконати завдання 4 ще раз? \n" +
+                                "1 - Так \n" +
+                                "2 - Ні");
+                        max = scanner.nextInt();
                     }
-                    System.out.println("Виконати завдання 4 ще раз? \n" +
-                            "1 - Так \n" +
-                            "2 - Ні");
-                    max = scanner.nextInt();
-                }
-            } else if (choice == 5) {
-                System.out.println("Введіть число. на якому слід закінчити відлік: ");
-                int x = scanner.nextInt();
-                String counting = task1recursion(x);
-                System.out.println(counting);
+                    break;
+                case 5:
+                    System.out.println("Введіть число. на якому слід закінчити відлік: ");
+                    int x = scanner.nextInt();
+                    String counting = task1recursion(x);
+                    System.out.println(counting);
+                    break;
                 //......................//
-            } else if (choice == 6) {
-                System.out.println("Будь ласка, зазначте ширину прямокутника: ");
-                int w = scanner.nextInt();// Сканер ширини квадрата для задачі 2 за допомогою рекурсії
-                String pluswidth = task2recursion(w);
-                System.out.println("Будь ласка, зазначте довжину прямокутника:");
-                int l = scanner.nextInt();// Сканер довжини квадрата для задачі 2 за допомогою рекурсії
-                String plus = task2recursion(l, pluswidth);
-                System.out.println(plus);
-            } else {
-                System.out.println("Ви невірно задали номер питання!");
+                case 6:
+                    System.out.println("Будь ласка, зазначте ширину прямокутника: ");
+                    int w = scanner.nextInt();// Сканер ширини квадрата для задачі 2 за допомогою рекурсії
+                    String pluswidth = task2recursion(w);
+                    System.out.println("Будь ласка, зазначте довжину прямокутника:");
+                    int l = scanner.nextInt();// Сканер довжини квадрата для задачі 2 за допомогою рекурсії
+                    String plus = task2recursion(l, pluswidth);
+                    System.out.println(plus);
+                    break;
+                default:
+                    System.out.println("Ви невірно задали номер питання!");
             }
             System.out.println("Чи бажаєте ви виконати ще якесь завдання? \n" +
                     "1 - Так \n" +
